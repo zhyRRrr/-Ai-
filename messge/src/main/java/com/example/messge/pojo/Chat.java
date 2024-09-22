@@ -23,6 +23,7 @@ public class Chat {
     private int trainId; // 训练难度 (1-3)
     private int sceneId; // 场景号 (1-4)
     private Long sessionId; // 会话ID，用于区分不同的聊天会话
+    private Integer userId; // 用户ID，用于区分不同的用户
 
     private LocalDateTime createdAt;
 //    mappedBy = "chat"：表示Message类中的chat字段是该关系的拥有方。

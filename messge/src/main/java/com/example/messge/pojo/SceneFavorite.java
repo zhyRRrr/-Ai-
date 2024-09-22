@@ -14,4 +14,5 @@ public class SceneFavorite {
     private int trainId; // 训练难度
     private int sceneId; // 场景号
     private String sceneName; // 场景名
+    private Integer userId; // 用户id
 }
