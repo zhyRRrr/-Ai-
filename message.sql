@@ -11,13 +11,17 @@ CREATE TABLE chats (
 
 CREATE TABLE messages (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    chat_id BIGINT NOT NULL, -- 关联到具体聊天记录的ID
+    chat_id BIGINT NOT NULL,  -- 关联到具体聊天记录的ID
     sender VARCHAR(255) NOT NULL,
     receiver VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL,
+    question TEXT,  -- 用于存储问题
+    answer TEXT,    -- 用于存储答案
     timestamp DATETIME NOT NULL,
-    FOREIGN KEY (chat_id) REFERENCES chats(id) ON DELETE CASCADE
+    -- JSON 类型用于存储关键词列表，如果数据库支持
+    keywords JSON,
+    FOREIGN KEY (chat_id) REFERENCES chats(id) ON DELETE CASCADE  -- 可选，设置级联删除
 );
+
 
 CREATE TABLE scores (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,   -- 自增的主键
